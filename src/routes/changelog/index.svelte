@@ -8,6 +8,7 @@
 <script lang="ts">
   import type { Changelog } from "../../types/changelog.type";
   import OpenGraph from "../../components/open-graph.svelte";
+  import NewsletterSignup from "../../components/blog/newsletter-signup.svelte";
   import "../../assets/markdown-commons.scss";
 
   export let changelogEntries: Changelog[];
@@ -55,6 +56,7 @@
         class="btn-primary">Follow us on Twitter</a
       >
     </p>
+    <NewsletterSignup />
   </header>
 </div>
 
