@@ -112,5 +112,5 @@
   </section>
 </div>
 
-<NewsletterSignup />
+<NewsletterSignup classNames="mx-auto mt-large mb-huge" />
 <RecentArticlesPreview />

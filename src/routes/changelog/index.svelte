@@ -53,10 +53,10 @@
       <a
         href="https://www.twitter.com/gitpod"
         rel="noopener"
-        class="btn-primary">Follow us on Twitter</a
+        class="btn-primary mt-micro">Follow us on Twitter</a
       >
     </p>
-    <NewsletterSignup />
+    <NewsletterSignup classNames="mt-small" />
   </header>
 </div>
 
