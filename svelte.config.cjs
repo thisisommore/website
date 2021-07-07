@@ -43,6 +43,7 @@ module.exports = {
       layout: {
         blog: "./src/components/blog/blog-content-layout.svelte",
         docs: "./src/components/docs/docs-content-layout.svelte",
+        guides: "./src/components/guides/guides-content-layout.svelte",
       },
       remarkPlugins: [
         slug,

@@ -23,9 +23,21 @@ export const getContext: import("@sveltejs/kit").GetContext = async () => {
   );
   changelogEntries.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
 
+  const guides = await Promise.all(
+    Object.entries(import.meta.glob("/src/routes/guides/*.md")).map(
+      async ([path, page]) => {
+        const { metadata } = await page();
+        const filename = path.split("/").pop();
+        return { ...metadata, filename };
+      }
+    )
+  );
+  guides.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+
   return {
     changelogEntries,
     posts,
+    guides,
   };
 };
 
@@ -35,6 +47,7 @@ export const getSession: import("@sveltejs/kit").GetSession = async ({
   return {
     changelogEntries: context.changelogEntries,
     posts: context.posts,
+    guides: context.guides,
   };
 };
 

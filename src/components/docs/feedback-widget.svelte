@@ -6,6 +6,8 @@
   let note = "";
   let resultMessage;
   let isSubmittedOnce = false;
+  let clazz = "";
+  export { clazz as class };
 
   const submitFeedback = async () => {
     isSubmittedOnce = true;
@@ -38,7 +40,7 @@
   }
 </style>
 
-<div class="my-huge">
+<div class={clazz}>
   <div
     class="bg-white shadow-normal rounded-2xl max-w-md py-small px-xx-small m-auto"
   >
