@@ -16,6 +16,10 @@
   export let changelogEntries: Changelog[];
 
   let isNewsLetterFormShown: boolean = false;
+
+  const handleClose = () => {
+    isNewsLetterFormShown = false;
+  };
 </script>
 
 <style type="text/postcss">
@@ -102,12 +106,12 @@
 <Modal
   isOpen={isNewsLetterFormShown}
   class="flex justify-center items-center"
-  on:close={() => (isNewsLetterFormShown = false)}
+  on:close={handleClose}
 >
   <NewsletterSignup>
     <CloseModalButton
       slot="close-button"
-      on:click={() => (isNewsLetterFormShown = false)}
+      on:click={handleClose}
       class="absolute right-6 top-6"
     />
   </NewsletterSignup>
