@@ -10,8 +10,12 @@
   import OpenGraph from "../../components/open-graph.svelte";
   import NewsletterSignup from "../../components/blog/newsletter-signup.svelte";
   import "../../assets/markdown-commons.scss";
+  import Modal from "../../components/modal.svelte";
+  import CloseModalButton from "../../components/close-modal-button.svelte";
 
   export let changelogEntries: Changelog[];
+
+  let isNewsLetterFormShown: boolean = false;
 </script>
 
 <style type="text/postcss">
@@ -49,14 +53,19 @@
   <header class="w-full mb-x-large md:w-8/12 md:mb-xx-large">
     <h1 class="mt-x-large mb-macro md:mt-xx-large">Changelog</h1>
     <p>Gitpod product improvements and updates</p>
-    <p>
+    <p class="mt-micro">
       <a
         href="https://www.twitter.com/gitpod"
         rel="noopener"
-        class="btn-primary mt-micro">Follow us on Twitter</a
+        class="btn-primary">Follow us on Twitter</a
       >
+      <button
+        class="btn-secondary"
+        on:click={() => (isNewsLetterFormShown = true)}
+      >
+        Signup for the Newsletter
+      </button>
     </p>
-    <NewsletterSignup class="mt-small" />
   </header>
 </div>
 
@@ -89,3 +98,17 @@
     </p>
   </div>
 </div>
+
+<Modal
+  isOpen={isNewsLetterFormShown}
+  class="flex justify-center items-center"
+  on:close={() => (isNewsLetterFormShown = false)}
+>
+  <NewsletterSignup>
+    <CloseModalButton
+      slot="close-button"
+      on:click={() => (isNewsLetterFormShown = false)}
+      class="absolute right-6 top-6"
+    />
+  </NewsletterSignup>
+</Modal>

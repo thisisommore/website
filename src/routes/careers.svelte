@@ -22,6 +22,10 @@
     const hash = window.location.hash.substring(1);
     selectedCareer = careers.find((career) => hyphenate(career.title) === hash);
   });
+
+  const clearSelectedCareer = () => {
+    selectedCareer = null;
+  };
 </script>
 
 <style lang="scss">
@@ -211,7 +215,8 @@
 
     <CareerModal
       career={selectedCareer}
-      on:close={() => (selectedCareer = null)}
+      on:close={clearSelectedCareer}
+      handleClose={clearSelectedCareer}
     />
   </div>
 </Section>
