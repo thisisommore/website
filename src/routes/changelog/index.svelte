@@ -56,7 +56,7 @@
         class="btn-primary mt-micro">Follow us on Twitter</a
       >
     </p>
-    <NewsletterSignup classNames="mt-small" />
+    <NewsletterSignup class="mt-small" />
   </header>
 </div>
 

@@ -1,5 +1,6 @@
 <script lang="ts">
-  export let classNames = "";
+  let clazz = "";
+  export { clazz as class };
   let email;
   let resultMessage = "";
   let isSubmittedOnce = false;
@@ -32,7 +33,7 @@
 </style>
 
 <form
-  class={`bg-white shadow-normal rounded-2xl max-w-lg py-small px-xx-small sm:px-small ${classNames}`}
+  class={`bg-white shadow-normal rounded-2xl max-w-lg py-small px-xx-small sm:px-small ${clazz}`}
   on:submit|preventDefault={submitEmail}
   id="newsletter"
 >
