@@ -38,7 +38,6 @@
   id="newsletter"
   on:click|stopPropagation
 >
-  <slot name="close-button" />
   <h2 class="h3">Stay updated</h2>
   {#if resultMessage}
     <p class="my-medium">{resultMessage}</p>

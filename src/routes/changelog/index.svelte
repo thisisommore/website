@@ -11,7 +11,6 @@
   import NewsletterSignup from "../../components/blog/newsletter-signup.svelte";
   import "../../assets/markdown-commons.scss";
   import Modal from "../../components/modal.svelte";
-  import CloseModalButton from "../../components/close-modal-button.svelte";
 
   export let changelogEntries: Changelog[];
 
@@ -103,16 +102,6 @@
   </div>
 </div>
 
-<Modal
-  isOpen={isNewsLetterFormShown}
-  class="flex justify-center items-center"
-  on:close={handleClose}
->
-  <NewsletterSignup>
-    <CloseModalButton
-      slot="close-button"
-      on:click={handleClose}
-      class="absolute right-6 top-6"
-    />
-  </NewsletterSignup>
+<Modal isOpen={isNewsLetterFormShown} on:close={handleClose}>
+  <NewsletterSignup />
 </Modal>

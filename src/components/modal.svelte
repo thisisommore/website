@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { afterUpdate, createEventDispatcher, onMount } from "svelte";
-  let clazz = "";
-  export { clazz as class };
+  import { createEventDispatcher } from "svelte";
+  export let closeButtonPosition = "right-6 top-6";
 
   export let isOpen = false;
 
@@ -9,10 +8,6 @@
 
   let closeEl: HTMLButtonElement;
   let focusedEl: HTMLElement;
-
-  afterUpdate(() => {
-    closeEl = document.querySelector("[data-id='close-modal-button']");
-  });
 
   $: if (isOpen) {
     if (typeof document !== "undefined")
@@ -36,7 +31,17 @@
 <svelte:window on:keydown={handleKeydown} />
 
 {#if isOpen}
-  <div class={`modal ${clazz}`} on:click={closeModal}>
-    <slot />
+  <div class={`modal flex justify-center items-center`} on:click={closeModal}>
+    <div class="flex justify-center items-center relative">
+      <button
+        class={`absolute ${closeButtonPosition} h-3 w-3 z-10`}
+        bind:this={closeEl}
+        aria-label="close this popup"
+        on:click={closeModal}
+      >
+        <img alt="Close" role="presentation" src="/x.svg" />
+      </button>
+      <slot />
+    </div>
   </div>
 {/if}

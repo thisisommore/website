@@ -213,10 +213,6 @@
       {/each}
     </ul>
 
-    <CareerModal
-      career={selectedCareer}
-      on:close={clearSelectedCareer}
-      handleClose={clearSelectedCareer}
-    />
+    <CareerModal career={selectedCareer} on:close={clearSelectedCareer} />
   </div>
 </Section>

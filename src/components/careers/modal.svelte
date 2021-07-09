@@ -1,10 +1,8 @@
 <script lang="ts">
   import type { Career } from "../../types/career.type";
-  import CloseModalButton from "../close-modal-button.svelte";
   import Modal from "../modal.svelte";
 
   export let career: Career;
-  export let handleClose;
 </script>
 
 <style>
@@ -14,9 +12,12 @@
   }
 </style>
 
-<Modal isOpen={!!career} on:close>
+<Modal
+  isOpen={!!career}
+  on:close
+  closeButtonPosition="top-6 right-6 md:top-12 md:right-16"
+>
   <div class="content text-blob" on:click|stopPropagation>
-    <CloseModalButton on:click={handleClose} />
     <h2 class="jobTitle">{career.title}</h2>
     <p>{@html career.intro}</p>
     <p>{@html career.paragraphs}</p>
