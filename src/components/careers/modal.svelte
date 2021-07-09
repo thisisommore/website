@@ -15,7 +15,7 @@
 </style>
 
 <Modal isOpen={!!career} on:close>
-  <div class="content text-blob" on:click={(e) => e.stopPropagation()}>
+  <div class="content text-blob" on:click|stopPropagation>
     <CloseModalButton on:click={handleClose} />
     <h2 class="jobTitle">{career.title}</h2>
     <p>{@html career.intro}</p>

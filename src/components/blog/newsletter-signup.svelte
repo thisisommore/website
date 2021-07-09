@@ -36,7 +36,7 @@
   class={`bg-white shadow-normal rounded-2xl max-w-lg py-small px-xx-small sm:px-small ${clazz} relative`}
   on:submit|preventDefault={submitEmail}
   id="newsletter"
-  on:click={(e) => e.stopPropagation()}
+  on:click|stopPropagation
 >
   <slot name="close-button" />
   <h2 class="h3">Stay updated</h2>
