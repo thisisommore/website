@@ -31,10 +31,10 @@
 <svelte:window on:keydown={handleKeydown} />
 
 {#if isOpen}
-  <div class={`modal flex justify-center items-center`} on:click={closeModal}>
+  <div class="modal flex justify-center items-center" on:click={closeModal}>
     <div class="flex justify-center items-center relative">
       <button
-        class={`absolute ${closeButtonPosition} h-3 w-3 z-10`}
+        class="absolute {closeButtonPosition} h-3 w-3 z-10"
         bind:this={closeEl}
         aria-label="close this popup"
         on:click={closeModal}

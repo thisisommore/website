@@ -15,7 +15,7 @@
 <Modal
   isOpen={!!career}
   on:close
-  closeButtonPosition="top-6 right-6 md:top-12 md:right-16"
+  closeButtonPosition="top-6 right-6 md:top-16 md:right-20"
 >
   <div class="content text-blob" on:click|stopPropagation>
     <h2 class="jobTitle">{career.title}</h2>

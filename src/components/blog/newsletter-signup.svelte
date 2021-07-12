@@ -33,7 +33,7 @@
 </style>
 
 <form
-  class={`bg-white shadow-normal rounded-2xl max-w-lg py-small px-xx-small sm:px-small ${clazz} relative`}
+  class="bg-white shadow-normal rounded-2xl max-w-lg py-small px-xx-small sm:px-small {clazz} relative"
   on:submit|preventDefault={submitEmail}
   id="newsletter"
   on:click|stopPropagation
