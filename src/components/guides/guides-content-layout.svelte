@@ -10,4 +10,4 @@
 >
   <slot />
 </PostContentLayout>
-<FeedbackWidget class="mb-huge" />
+<FeedbackWidget type="guides" class="mb-huge" />

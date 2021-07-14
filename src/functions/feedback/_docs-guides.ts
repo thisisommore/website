@@ -6,6 +6,7 @@ interface Feedback {
   emotion: number;
   note?: string;
   url: string;
+  type: "docs" | "guides";
 }
 
 const emotionSlackEmojiMap = {
@@ -15,15 +16,20 @@ const emotionSlackEmojiMap = {
   4: ":star-struck:",
 };
 
+const feedbackTypetoSheetTitle = {
+  docs: "Docs - Raw Feedback",
+  guides: "Guides - Raw Feedback",
+};
+
 export const submitFeedback = async (body: string): Promise<Response> => {
   const feedback: Feedback = JSON.parse(body) as Feedback;
   const isSavedInSheet = await saveFeedbackInSheet({
-    sheetTitle: "Docs - Raw Feedback",
+    sheetTitle: feedbackTypetoSheetTitle[feedback.type],
     data: [new Date(), feedback.emotion, feedback.url, feedback.note],
   });
-  const isSentToSlack = await sendFeedbackToSlack(`Docs feedback: ${
-    emotionSlackEmojiMap[feedback.emotion]
-  }
+  const isSentToSlack = await sendFeedbackToSlack(`${
+    feedback.type === "docs" ? "Docs" : "Guides"
+  } feedback: ${emotionSlackEmojiMap[feedback.emotion]}
 Link: ${feedback.url}
 Note: ${feedback.note ? feedback.note : "N/A"}`);
 
