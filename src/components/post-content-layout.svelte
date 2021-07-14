@@ -50,6 +50,7 @@
       )}`,
       alt: "Twitter",
       icon: "/svg/brands/twitter.svg",
+      trackingName: "twitter",
     },
     {
       href: `http://www.reddit.com/submit?url=${encodeURIComponent(
@@ -57,6 +58,7 @@
       )}`,
       alt: "Reddit",
       icon: "/svg/brands/reddit.svg",
+      trackingName: "reddit",
     },
   ];
 </script>
@@ -101,7 +103,13 @@
     <ul>
       {#each socialLinks as link}
         <li>
-          <a href={link.href}>
+          <a
+            href={link.href}
+            on:click={() =>
+              window.analytics.track("content_share_clicked", {
+                medium: link.trackingName,
+              })}
+          >
             <img src={link.icon} alt={link.alt} height="24" width="24" />
           </a>
         </li>
