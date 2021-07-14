@@ -22,7 +22,7 @@
 
 <style type="text/postcss">
   .blurb {
-    @apply flex flex-wrap;
+    @apply flex flex-wrap lg:justify-between;
   }
 
   .blog .blurb {
@@ -57,7 +57,7 @@
 
 <div
   class:bg-sand-dark={!isMostRecent}
-  class="blogPreview {type} flex flex-col max-w-md {type === 'blog'
+  class="{type} flex flex-col max-w-md {type === 'blog'
     ? ''
     : 'lg:flex-row lg:max-w-max mx-auto'} rounded-xl bg-off-white"
 >
