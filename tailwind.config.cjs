@@ -18,6 +18,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      screens: {
+        lgx: "1140px",
+      },
       backgroundImage: {
         "gitpod-kumquat-gradient":
           "linear-gradient(137.41deg, #FFAD33 14.37%, #FF8A00 91.32%)",
@@ -29,6 +32,7 @@ module.exports = {
         black: "var(--black)",
         "dark-grey": "var(--dark-grey)",
         "light-grey": "var(--light-grey)",
+        "link-grey": "var(--link-grey)",
         divider: "var(--divider)",
         "sand-dark": "var(--sand-dark)",
         "sand-light": "var(--sand-light)",
@@ -87,6 +91,7 @@ module.exports = {
       },
       boxShadow: {
         normal: "var(--shadow)",
+        medium: "var(--shadow-medium)",
         brand: "var(--shadow-brand)",
       },
     },

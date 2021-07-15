@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import MobileMenu from "./mobile-menu/index.svelte";
   import MobileMenuToggle from "./mobile-menu/toggle.svelte";
   import NavItem from "./nav-item.svelte";
@@ -57,7 +58,12 @@
   class={`${$menuState ? "bg-off-white " : ""}mx-auto w-full`}
 >
   <div class="flex items-center justify-between h-20 px-4 sm:px-8">
-    <a href="/" aria-label="Gitpod" on:click={() => ($menuState = !menuState)}>
+    <a
+      on:contextmenu|preventDefault={() => goto("/media-kit")}
+      href="/"
+      aria-label="Gitpod"
+      on:click={() => ($menuState = !menuState)}
+    >
       <Logo />
     </a>
     <div class="nav-items hidden px-2 space-x-6 items-center md:space-x-12">
