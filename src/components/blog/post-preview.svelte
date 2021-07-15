@@ -57,7 +57,7 @@
 
 <div
   class:bg-sand-dark={!isMostRecent}
-  class="{type} flex flex-col max-w-md {type === 'blog'
+  class="{type} flex flex-col max-w-sm lg:max-w-none {type === 'blog'
     ? ''
     : 'lg:flex-row lg:max-w-max mx-auto'} rounded-xl bg-off-white"
 >
