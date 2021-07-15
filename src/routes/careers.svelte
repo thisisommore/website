@@ -10,6 +10,7 @@
   import { careers, perks } from "../contents/careers";
   import { onMount } from "svelte";
   import Section from "../components/section.svelte";
+  import StructuredData from "../components/careers/structured-data.svelte";
 
   let selectedCareer;
 
@@ -221,6 +222,7 @@
               >
             </div>
           </button>
+          <StructuredData {career}/>
         </li>
       {/each}
     </ul>
