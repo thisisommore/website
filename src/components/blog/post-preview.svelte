@@ -63,7 +63,7 @@
 >
   {#if isMostRecent}
     <a href="/{type}/{post.slug}" sveltekit:prefetch>
-      <div aria-label={`Blog post: ${post.title}`}  class="object-cover m-auto overflow-hidden rounded-t-xl bg-center bg-cover w-full h-64 {type === 'blog' ? '' : 'lg:rounded-l-xl lg:rounded-t-none lg:w-60 lg:h-60'}" style={`background-image: url(/images/${type}/${post.slug}/${post.image});`}>
+      <div aria-label={`${type === 'blog' ? 'Blog post' : 'Guide'}: ${post.title}`}  class="object-cover m-auto overflow-hidden rounded-t-xl bg-center bg-cover w-full h-64 {type === 'blog' ? '' : 'lg:rounded-l-xl lg:rounded-t-none lg:w-60 lg:h-60'}" style={`background-image: url(/images/${type}/${post.slug}/${post.image});`}>
       </div>
     </a>
   {/if}
@@ -92,7 +92,7 @@
           socialMediaLinkClasses="filter hover:drop-shadow"
         />
         <a
-          href="/blog/{post.slug}"
+          href="/{type}/{post.slug}"
           class="date no-underline text-p-small ml-macro"
           sveltekit:prefetch
         >
