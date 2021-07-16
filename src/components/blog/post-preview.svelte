@@ -63,16 +63,8 @@
 >
   {#if isMostRecent}
     <a href="/{type}/{post.slug}" sveltekit:prefetch>
-      <img
-        src="/images/{type}/{post.slug}/{post.image}"
-        alt={`Blog post: ${post.title}`}
-        class="object-cover m-auto overflow-hidden h-60"
-        style="border-radius: {type === 'blog'
-          ? '0.75rem 0.75rem 0 0'
-          : '0.75rem 0 0 0.75rem'};"
-        height="248"
-        width="400"
-      />
+      <div aria-label={`Blog post: ${post.title}`}  class="object-cover m-auto overflow-hidden rounded-t-xl bg-center bg-cover w-full h-64 {type === 'blog' ? '' : 'lg:rounded-l-xl lg:rounded-t-none lg:w-60 lg:h-60'}" style={`background-image: url(/images/${type}/${post.slug}/${post.image});`}>
+      </div>
     </a>
   {/if}
   <div class="blurb p-x-small pt-small">
