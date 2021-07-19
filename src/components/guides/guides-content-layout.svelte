@@ -3,11 +3,7 @@
   import PostContentLayout from "../post-content-layout.svelte";
 </script>
 
-<PostContentLayout
-  imagesDirectoryName="guides"
-  baseUrl="https://www.gitpod.io/guides/"
-  {...$$restProps}
->
+<PostContentLayout {...$$restProps}>
   <slot />
 </PostContentLayout>
 <FeedbackWidget type="guides" class="mb-huge" />

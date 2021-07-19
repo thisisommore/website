@@ -3,9 +3,11 @@
   import OpenGraph from "./open-graph.svelte";
   import { authors } from "../contents/authors";
   import "../assets/markdown-commons.scss";
+  import { page } from "$app/stores";
 
-  export let baseUrl: string;
-  export let imagesDirectoryName: string;
+  const basePath = $page.path.split("/")[1];
+  let baseUrl = `https://www.gitpod.io/${basePath}/`;
+
   const {
     date,
     author,
@@ -72,13 +74,13 @@
     description: excerpt,
     title,
     type: "article",
-    image: `images/${imagesDirectoryName}/${slug}/${image}`,
-    imageTwitter: `images/${imagesDirectoryName}/${slug}/${image}`,
+    image: `images/${basePath}/${slug}/${image}`,
+    imageTwitter: `images/${basePath}/${slug}/${image}`,
   }}
 />
 <div class="post content-blog">
   <img
-    src="/images/{imagesDirectoryName}/{slug}/{teaserImage || image}"
+    src="/images/{basePath}/{slug}/{teaserImage || image}"
     alt={`${title}`}
     class="headerImage"
   />

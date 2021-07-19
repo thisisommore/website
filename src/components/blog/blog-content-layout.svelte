@@ -4,11 +4,7 @@
   import PostContentLayout from "../post-content-layout.svelte";
 </script>
 
-<PostContentLayout
-  imagesDirectoryName="blog"
-  baseUrl="https://www.gitpod.io/blog/"
-  {...$$restProps}
->
+<PostContentLayout {...$$restProps}>
   <slot />
 </PostContentLayout>
 

@@ -45,7 +45,7 @@
   <div class="posts-grid">
     {#each posts.slice(0, 6) as post}
       <div class="posts-grid__item">
-        <PostPreview {post} type="blog" isMostRecent />
+        <PostPreview {post} isMostRecent />
       </div>
     {/each}
   </div>
@@ -56,7 +56,7 @@
   <div class="posts-grid previous">
     {#each posts.slice(6) as post}
       <div class="posts-grid__item">
-        <PostPreview {post} type="blog" />
+        <PostPreview {post} />
       </div>
     {/each}
   </div>

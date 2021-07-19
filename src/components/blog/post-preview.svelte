@@ -1,13 +1,14 @@
 <script lang="ts">
   import type { BlogPost } from "../../types/blog-post.type";
   import type { SocialMediaLinks } from "../../types/avatars.type";
+  import { page } from "$app/stores";
 
   import { authors } from "../../contents/authors";
   import Avatars from "../avatars.svelte";
 
   export let post: BlogPost;
   export let isMostRecent: boolean = false;
-  export let type: "blog" | "guides";
+  let type = $page.path.split("/")[1];
 
   const authorSocialMediaLinks: SocialMediaLinks = Object.entries(
     authors
@@ -55,11 +56,21 @@
 >
   {#if isMostRecent}
     <a href="/{type}/{post.slug}" sveltekit:prefetch>
-      <div aria-label={`${type === 'blog' ? 'Blog post' : 'Guide'}: ${post.title}`}  class="object-cover m-auto overflow-hidden rounded-t-xl bg-center bg-cover w-full h-64 {type === 'blog' ? '' : 'lg:rounded-l-xl lg:rounded-t-none lg:w-60 lg:h-60'}" style={`background-image: url(/images/${type}/${post.slug}/${post.image});`}>
-      </div>
+      <div
+        aria-label={`${type === "blog" ? "Blog post" : "Guide"}: ${post.title}`}
+        class="object-cover m-auto overflow-hidden rounded-t-xl bg-center bg-cover w-full h-64 {type ===
+        'blog'
+          ? ''
+          : 'lg:rounded-l-xl lg:rounded-t-none lg:w-60 lg:h-60'}"
+        style={`background-image: url(/images/${type}/${post.slug}/${post.image});`}
+      />
     </a>
   {/if}
-  <div class="blurb {type === 'blog' ? 'flex-col h-full' : ''} flex flex-wrap lg:justify-between p-x-small pt-small">
+  <div
+    class="blurb {type === 'blog'
+      ? 'flex-col h-full'
+      : ''} flex flex-wrap lg:justify-between p-x-small pt-small"
+  >
     <div>
       {#if headlineOrder === "h3"}
         <h3 class="h2">
