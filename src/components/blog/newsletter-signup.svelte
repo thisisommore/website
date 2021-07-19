@@ -5,6 +5,10 @@
 
   const submitEmail = async () => {
     isSubmittedOnce = true;
+    window.analytics.track("newsletter signup", {
+      email,
+      signup_at: new Date().toISOString(),
+    });
     try {
       const response = await fetch("/.netlify/functions/newsletter", {
         method: "post",
