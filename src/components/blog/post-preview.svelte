@@ -21,14 +21,6 @@
 </script>
 
 <style type="text/postcss">
-  .blurb {
-    @apply flex flex-wrap lg:justify-between;
-  }
-
-  .blog .blurb {
-    @apply flex-col h-full;
-  }
-
   .blurb > :first-child {
     @media (min-width: 1280px) {
       flex: 0 0 75%;
@@ -67,7 +59,7 @@
       </div>
     </a>
   {/if}
-  <div class="blurb p-x-small pt-small">
+  <div class="blurb {type === 'blog' ? 'flex-col h-full' : ''} flex flex-wrap lg:justify-between p-x-small pt-small">
     <div>
       {#if headlineOrder === "h3"}
         <h3 class="h2">
