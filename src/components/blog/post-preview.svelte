@@ -1,21 +1,11 @@
 <script lang="ts">
-  import type { BlogPost } from "../../types/blog-post.type";
-  import type { SocialMediaLinks } from "../../types/avatars.type";
+import { authorSocialMediaLinks } from "../../contents/blog";
 
-  import { authors } from "../../contents/blog";
-  import Avatars from "../avatars.svelte";
+  import type { BlogPost } from "../../types/blog-post.type";
+  import Avatars from "../avatars.svelte"
 
   export let post: BlogPost;
   export let isMostRecent: boolean = false;
-
-  const authorSocialMediaLinks: SocialMediaLinks = Object.entries(
-    authors
-  ).reduce((displayNames, [username, profile]) => {
-    displayNames[
-      username
-    ] = `https://twitter.com/${profile.socialProfiles.twitter}`;
-    return displayNames;
-  }, {});
   export let headlineOrder: "h3";
 </script>
 

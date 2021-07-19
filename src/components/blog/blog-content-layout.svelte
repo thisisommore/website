@@ -2,7 +2,7 @@
   import Avatars from "../avatars.svelte";
   import RecentArticlesPreview from "./recent-articles-preview.svelte";
   import OpenGraph from "../../components/open-graph.svelte";
-  import { authors } from "../../contents/blog";
+  import { authors, authorSocialMediaLinks } from "../../contents/blog";
   import "../../assets/markdown-commons.scss";
   import NewsletterSignup from "./newsletter-signup.svelte";
 
@@ -32,23 +32,27 @@
     {}
   );
 
-  const authorSocialMediaLinks = Object.entries(authors).reduce(
-    (displayNames, [username, profile]) => {
-      displayNames[
-        username
-      ] = `https://twitter.com/${profile.socialProfiles.twitter}`;
-      return displayNames;
-    },
-    {}
-  );
+  const renderTwittwrHandles = () => {
+    let writers = author.split(", ")
+
+    let result = ''
+
+    for (let i = 0; i < writers.length; i++) {
+      if(authors[writers[i]].socialProfiles.twitter && ( authors[writers[i + 1]] && authors[writers[i + 1]].socialProfiles.twitter)) {
+        result += `@${authors[writers[i]].socialProfiles.twitter}, ` 
+      }
+      else if(authors[writers[i]].socialProfiles.twitter) { 
+        result += `@${authors[writers[i]].socialProfiles.twitter}` 
+      }
+    }
+    
+    return result
+  }
 
   const socialLinks = [
     {
       href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-        `${title} by ${author
-          .split(", ")
-          .map((username) => "@" + authors[username].socialProfiles.twitter)
-          .join(", ")} ${blogBaseUrl}${slug}`
+        `${title} by ${renderTwittwrHandles()} ${blogBaseUrl}${slug}`
       )}`,
       alt: "Twitter",
       icon: "/svg/brands/twitter.svg",
@@ -107,6 +111,7 @@
         <li>
           <a
             href={link.href}
+            target="_blank"
             on:click={() =>
               window.analytics.track("content_share_clicked", {
                 medium: link.trackingName,
