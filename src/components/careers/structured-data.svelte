@@ -1,9 +1,10 @@
 <script lang="ts">
+  import { CAREER_EMAIL } from "../../utils/constants";
   import type { Career } from "../../types/career.type";
   export let career: Career;
   const { title, intro, paragraphs, lists, textAfterTheLists, date } = career;
 
-  const applicationEmail = `mailto:career@gitpod.io?subject=Application as ${title}`;
+  const applicationEmail = `mailto:${CAREER_EMAIL}?subject=Application as ${title}`;
 
   const structuredData = {
     "@context": "https://schema.org/",

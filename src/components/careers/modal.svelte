@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { CAREER_EMAIL } from "../../utils/constants";
   import type { Career } from "../../types/career.type";
   import Modal from "../modal.svelte";
 
@@ -36,7 +37,7 @@
   <p class="my-7rem">
     <a
       class="btn-conversion"
-      href="mailto:career@gitpod.io?subject=Application as {career.title}"
+      href="mailto:{CAREER_EMAIL}?subject=Application as {career.title}"
       on:click={() =>
         window.analytics.track("hiring_interaction", {
           subtype: "apply_clicked",
