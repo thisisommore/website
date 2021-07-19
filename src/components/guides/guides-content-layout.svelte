@@ -6,4 +6,4 @@
 <PostContentLayout {...$$restProps}>
   <slot />
 </PostContentLayout>
-<FeedbackWidget type="guides" class="mb-huge" />
+<FeedbackWidget class="mb-huge" />

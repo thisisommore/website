@@ -8,7 +8,7 @@
   let isSubmittedOnce = false;
   let clazz = "";
   export { clazz as class };
-  export let type: "docs" | "guides";
+  let type = $page.path.split("/")[1];
 
   const submitFeedback = async () => {
     isSubmittedOnce = true;
