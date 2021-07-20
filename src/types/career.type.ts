@@ -11,4 +11,5 @@ export type Career = {
   textAfterTheLists: string;
   rendered?: boolean;
   date?: string;
+  focusEl?: HTMLElement;
 };

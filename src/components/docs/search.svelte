@@ -55,7 +55,7 @@
   });
 </script>
 
-<style lang="scss">
+<style type="text/postcss">
   .input-container {
     box-shadow: var(--shadow);
 

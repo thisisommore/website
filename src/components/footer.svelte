@@ -21,7 +21,7 @@
   ];
 </script>
 
-<style lang="scss">
+<style type="text/postcss">
   a {
     @apply text-dark-grey no-underline;
 
