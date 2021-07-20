@@ -74,7 +74,7 @@
   }
 </style>
 
-<div class="pb-8 bg-gray-100 text-p-xsmall">
+<div class="pb-8 bg-gray-100 text-p-footer">
   <footer
     class="footer py-large m-auto px-xx-small md:max-w-3xl md:py-small md:px-xx-small"
   >

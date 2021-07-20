@@ -70,6 +70,7 @@ module.exports = {
         "p-medium": "var(--p-medium)",
         "p-small": "var(--p-small)",
         "p-xsmall": "var(--p-xsmall)",
+        "p-footer": "var(--p-footer)",
         "btn-small": "var(--btn-small)",
         "fine-print": "var(--fine-print)",
       },
