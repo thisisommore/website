@@ -4,11 +4,13 @@
   export let isOpen = false;
 
   $: {
-    const html = document.querySelector('html')
-    if (isOpen) {
-      html.style.overflowY = 'hidden';
-    } else {  
-      html.style.overflowY = 'initial';
+    if (typeof document !== "undefined") {
+      const html = document.querySelector("html");
+      if (isOpen) {
+        html.style.overflowY = "hidden";
+      } else {
+        html.style.overflowY = "initial";
+      }
     }
   }
 
