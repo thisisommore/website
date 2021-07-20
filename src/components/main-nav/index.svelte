@@ -27,11 +27,11 @@
     {
       href: "/changelog",
       label: "Changelog",
+      isHighlighted: true,
     },
     {
       href: "/careers",
       label: "We're hiring",
-      isHighlighted: true,
     },
   ];
 </script>
