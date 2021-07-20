@@ -141,7 +141,7 @@
         <li>Company</li>
         <li><a href="/about">About</a></li>
         <li>
-          <a href="/careers">Careers<sup class="text-orange-800">*</sup></a>
+          <a href="/careers" class="highlighted">Careers</a>
         </li>
         <li><a href="/contact">Contact</a></li>
         <li><a href="/media-kit">Media Kit</a></li>
